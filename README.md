@@ -6,11 +6,15 @@ This is a React common components library，just the beginning, for dream, for l
 
 The project is in its infancy, if you wanna get it, you can use the  following command:
 
-```sh
+```shell
 npm install twiocamic --save
 ```
+the page in:
 
-or you can download the code, and input following command to get a instruction page:
+```shell
+zgcfantasy.github.io/twiocamic
+```
+or you can download the code, and input following command to get page:
 
 ```shell
 # get modules
