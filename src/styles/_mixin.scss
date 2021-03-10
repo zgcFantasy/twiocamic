@@ -1,0 +1,67 @@
+
+// 不同 size 的 button 大小样式
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius){
+  padding:$padding-y $padding-x;
+  font-size:$font-size;
+  border-radius: $border-radius;
+}
+
+// 不同 type 的 button 色彩样式
+@mixin button-style (
+  $background,
+  $border-color,
+  $color,
+  $hover-background:lighten($background, 7.5%), // sass 内置函数，没有赋值时采用该默认值
+  $hover-border:lighten($border-color, 10%),
+  $hover-color:$color
+  ){
+  color:$color;
+  background: $background;
+  border-color: $border-color;
+  
+  &:hover{
+    color:$hover-color;
+    background: $hover-background;
+    border-color: $hover-border;
+  };
+  &:focus,&.focus{
+    outline: none; // 去掉点击时的默认黑框
+    color:$hover-color;
+    background: $hover-background;
+    border-color: $hover-border;
+  };
+  &:disabled,&.disabled{ // 写在 hover 后面覆盖掉 hover 属性
+    color:$color; 
+    background: $background;
+    border-color: $border-color;
+  };
+  
+}
+
+// 向某个方向进行展开关闭的动画
+@mixin zoom-animation(
+  $direction: 'top',
+  $scaleStart: scaleY(0),
+  $scaleEnd: scaleY(1),
+  $origin: center top,
+) {
+  .zoom-in-#{$direction}-enter {
+    opacity: 0;
+    transform: $scaleStart;
+  }
+  .zoom-in-#{$direction}-enter-active {
+    opacity: 1;
+    transform: $scaleEnd;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    transform-origin: $origin
+  }
+  .zoom-in-#{$direction}-exit {
+    opacity: 1;
+  }
+  .zoom-in-#{$direction}-exit-active {
+    opacity: 0;
+    transform: $scaleStart;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    transform-origin: $origin;
+  }
+}

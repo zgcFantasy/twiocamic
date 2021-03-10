@@ -1,0 +1,20 @@
+// 设置编译 ts 导出设置
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "ESNext", // es型的module
+    "target": "ES5", // 编译为 es5 语言的结果，保证兼容性
+    "declaration": true, // 生成 .d.ts 类型提示与检查
+    "jsx": "react",
+    "moduleResolution": "node", // 解决路径查找问题
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "src/**/*.test.tsx",
+    "src/**/*.stories.tsx",
+    "src/**/*.stories.mdx"
+  ]
+}
